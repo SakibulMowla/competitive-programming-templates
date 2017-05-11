@@ -36,7 +36,7 @@ struct SuffixAutomata {
         for (auto &x: s) Insert(x);
     }
 
-    void Insert (char c) {
+    void Insert(char c) {
         int cur = sz++;
         st[cur].len = st[last].len + 1;
 
@@ -100,12 +100,12 @@ struct SuffixAutomata {
         Tested Problem: 432D(CF)
     **/
 
-    int OccurrencesPreprocess () {
+    int OccurrencesPreprocess() {
         for (auto it = base.rbegin(); it != base.rend(); it++)
-            cnt[st[it->second ].link] += cnt[it->second];
+            cnt[st[it->second].link] += cnt[it->second];
     }
 
-    int Occurrences (string& s) {
+    int Occurrences(string& s) {
         if (isPreProcessed == false) OccurrencesPreprocess();
         isPreProcessed = true;
 
