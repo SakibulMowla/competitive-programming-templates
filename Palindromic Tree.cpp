@@ -24,7 +24,7 @@ struct PalindromicTree {
     int last;
 
     ///For finding total number of palindromes
-    vector <int> dp;
+    vector <long long> dp;
     ///For finding total number of palindromes
 
     /**
@@ -34,7 +34,7 @@ struct PalindromicTree {
     PalindromicTree() {
         tree = vector <state> (MAXLEN);
         ///For finding total number of palindromes
-        dp = vector <int> (MAXLEN, 0);
+        dp = vector <long long> (MAXLEN, 0);
         ///For finding total number of palindromes
         sz = last = 2;
         tree[1].len = -1; tree[1].link = 1;
@@ -43,7 +43,7 @@ struct PalindromicTree {
 
 
     /**
-        Tested Problem: NUMOFPAL(SPOJ), LPS (SPOJ), 3948(HDU)
+        Tested Problem: NUMOFPAL(SPOJ), LPS (SPOJ), 3948(HDU), 1960(Timus)
     */
     void buildTree(string& str) {
         s = str;
@@ -54,7 +54,7 @@ struct PalindromicTree {
 
         ///total number of palindromes(Unique + Non-unique) = palindromes
         long long palindromes = 0;
-        for (auto x: dp) palindromes += x;
+        for (int i = 3; i <= sz; i++) palindromes += dp[i];
         ///total number of unique palindromes is just the number of nodes in the tree except the 2 roots
 
         return;
@@ -72,8 +72,10 @@ struct PalindromicTree {
                 break;
             cur = tree[cur].link;
         }
+
         if (tree[cur].next[c]) {
             last = tree[cur].next[c];
+            dp[last] += 1 + dp[tree[last].link];
             return false;
         }
 
@@ -109,6 +111,12 @@ struct PalindromicTree {
 
 
 int main() {
+
+    string s;
+    cin >> s;
+
+    PalindromicTree PT;
+    PT.buildTree(s);
 
     return 0;
 }
