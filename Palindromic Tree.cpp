@@ -34,6 +34,10 @@ struct PalindromicTree {
         tree[2].len = 0; tree[2].link = 1;
     }
 
+
+    /**
+        Tested Problem: NUMOFPAL(SPOJ)
+    */
     void buildTree(string& str) {
         s = str;
         int n = s.size();
