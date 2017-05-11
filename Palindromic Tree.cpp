@@ -5,12 +5,19 @@
 using namespace std;
 
 struct PalindromicTree {
+    const int MAXLEN = 100000 + 10;
+
+    /**
+        every node represents a palindrome
+        len - the length of palindrome represented by current node
+        next - transition from this node to other nodes by different characters
+        link - node number of longest suffix palindrome of current node
+    **/
     struct state {
         map <char, int> next;
         int len, link;
     };
 
-    const int MAXLEN = 100000 + 10;
     string s;
     vector <state> tree;
     int sz;
@@ -36,7 +43,7 @@ struct PalindromicTree {
 
 
     /**
-        Tested Problem: NUMOFPAL(SPOJ)
+        Tested Problem: NUMOFPAL(SPOJ), LPS (SPOJ), 3948(HDU)
     */
     void buildTree(string& str) {
         s = str;
