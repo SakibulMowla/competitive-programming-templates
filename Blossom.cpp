@@ -27,7 +27,7 @@ struct Blossom {
         g[v].push_back(u);
     }
 
-    int lca (int a, int b) {
+    int lca(int a, int b) {
         vector <bool> usedInternal(n, false);
         // From the node a climb up to the roots, marking all even vertices
         for (;;) {
@@ -43,7 +43,7 @@ struct Blossom {
         }
     }
 
-    void mark_path (int v, int b, int children) {
+    void mark_path(int v, int b, int children) {
         while (base[v] != b) {
             blossom[base[v]] = blossom[base[match[v]]] = true;
             p[v] = children;
@@ -52,12 +52,12 @@ struct Blossom {
         }
     }
 
-    int find_path (int root,int n) {
+    int find_path(int root,int n) {
         used = vector <bool> (n, false);
         p = vector <int> (n, -1);
-        for (int i=0; i<n; ++i) base[i] = i;
+        for (int i = 0; i < n; ++i) base[i] = i;
         used[root] = true;
-        int qh=0, qt=0;
+        int qh = 0, qt = 0;
         q[qt++] = root;
         while (qh < qt) {
             int v = q[qh++];
@@ -67,9 +67,9 @@ struct Blossom {
                 if (to == root || match[to] != -1 && p[match[to]] != -1) {
                     int curbase = lca (v, to);
                     blossom = vector <bool> (n, false);
-                    mark_path (v, curbase, to);
-                    mark_path (to, curbase, v);
-                    for (int i=0; i<n; ++i)
+                    mark_path(v, curbase, to);
+                    mark_path(to, curbase, v);
+                    for (int i = 0; i < n; ++i)
                         if (blossom[base[i]]) {
                             base[i] = curbase;
                             if (!used[i]) {
@@ -91,10 +91,10 @@ struct Blossom {
 
     int graph_match() {
         int ret = 0;
-        for (int i=0; i<n; ++i)
+        for (int i = 0; i < n; ++i)
             if (match[i] == -1) {
                 int v = find_path (i,n);
-                if(v!=-1) ret++;
+                if(v != -1) ret++;
                 while (v != -1) {
                     int pv = p[v], ppv = match[pv];
                     match[v] = pv, match[pv] = v;
@@ -127,8 +127,8 @@ int main() {
     int ans = graph.graph_match();
     cout << 2 * ans << endl;
 
-    for(int i = 0; i < graph.n; i++)
-        if(graph.match[i] > -1) {
+    for (int i = 0; i < graph.n; i++)
+        if (graph.match[i] > -1) {
             cout << i + 1 << ' ' << graph.match[i] + 1 << endl;
         }
 
