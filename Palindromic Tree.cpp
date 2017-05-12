@@ -53,16 +53,23 @@ struct PalindromicTree {
         for (int i = 0; i < n; i++) {
             Insert(i, s[i]);
         }
-
-        ///total number of palindromes(Unique + Non-unique) = palindromes
-        long long palindromes = 0;
-        for (int i = 3; i <= sz; i++) {
-            cnt[i] += cnt[tree[i].link];
-            palindromes += cnt[i] * occurrences[i];
-        }
-        ///total number of unique palindromes is just the number of nodes in the tree except the 2 roots
-
         return;
+    }
+
+    /**
+        call this function before working with different palindromic substring frequency
+        cnt[i] - total frequency of palindromic node i
+        palindromes - total number of palindromes(Unique + Non-unique)
+        total number of unique palindromes is just the number of nodes in the tree except the 2 roots
+    **/
+    long long palindromeCount() {
+        long long palindromes = 0;
+        for (int i = sz; i >= 3; i--) {
+            cnt[tree[i].link] += cnt[i];
+            palindromes += cnt[i];
+        }
+        cnt[1] = cnt[2] = 0;
+        return palindromes;
     }
 
     /**
@@ -81,7 +88,7 @@ struct PalindromicTree {
         if (tree[cur].next[c]) {
             last = tree[cur].next[c];
             ///For finding total number of palindromes
-            occurrences[last]++;
+            cnt[last]++;
             ///For finding total number of palindromes
             return false;
         }
@@ -95,7 +102,6 @@ struct PalindromicTree {
             tree[sz].link = 2;
             ///For finding total number of palindromes
             cnt[sz] = 1;
-            occurrences[sz] = 1;
             ///For finding total number of palindromes
             return true;
         }
@@ -111,7 +117,6 @@ struct PalindromicTree {
 
         ///For finding total number of palindromes
         cnt[sz] = 1;
-        occurrences[sz] = 1;
         ///For finding total number of palindromes
 
         return true;
