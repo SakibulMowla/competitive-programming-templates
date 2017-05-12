@@ -25,7 +25,6 @@ struct PalindromicTree {
 
     ///For finding total number of palindromes
     vector <long long> cnt;
-    vector <long long> occurrences;
     ///For finding total number of palindromes
 
     /**
@@ -36,7 +35,6 @@ struct PalindromicTree {
         tree = vector <state> (MAXLEN);
         ///For finding total number of palindromes
         cnt = vector <long long> (MAXLEN, 0);
-        occurrences = vector <long long> (MAXLEN, 0);
         ///For finding total number of palindromes
         sz = last = 2;
         tree[1].len = -1; tree[1].link = 1;
