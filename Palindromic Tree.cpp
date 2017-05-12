@@ -43,7 +43,7 @@ struct PalindromicTree {
 
 
     /**
-        Tested Problem: NUMOFPAL(SPOJ), LPS (SPOJ), 3948(HDU), 1960(Timus)
+        Tested Problem: NUMOFPAL(SPOJ), LPS (SPOJ), 3948(HDU), 1960(Timus), 100548-G(CF Gym)
     */
     void buildTree(string& str) {
         s = str;
