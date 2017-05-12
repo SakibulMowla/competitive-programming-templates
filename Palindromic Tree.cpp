@@ -24,7 +24,8 @@ struct PalindromicTree {
     int last;
 
     ///For finding total number of palindromes
-    vector <long long> dp;
+    vector <long long> cnt;
+    vector <long long> occurrences;
     ///For finding total number of palindromes
 
     /**
@@ -34,7 +35,8 @@ struct PalindromicTree {
     PalindromicTree() {
         tree = vector <state> (MAXLEN);
         ///For finding total number of palindromes
-        dp = vector <long long> (MAXLEN, 0);
+        cnt = vector <long long> (MAXLEN, 0);
+        occurrences = vector <long long> (MAXLEN, 0);
         ///For finding total number of palindromes
         sz = last = 2;
         tree[1].len = -1; tree[1].link = 1;
@@ -54,7 +56,10 @@ struct PalindromicTree {
 
         ///total number of palindromes(Unique + Non-unique) = palindromes
         long long palindromes = 0;
-        for (int i = 3; i <= sz; i++) palindromes += dp[i];
+        for (int i = 3; i <= sz; i++) {
+            cnt[i] += cnt[tree[i].link];
+            palindromes += cnt[i] * occurrences[i];
+        }
         ///total number of unique palindromes is just the number of nodes in the tree except the 2 roots
 
         return;
@@ -75,7 +80,9 @@ struct PalindromicTree {
 
         if (tree[cur].next[c]) {
             last = tree[cur].next[c];
-            dp[last] += 1 + dp[tree[last].link];
+            ///For finding total number of palindromes
+            occurrences[last]++;
+            ///For finding total number of palindromes
             return false;
         }
 
@@ -87,7 +94,8 @@ struct PalindromicTree {
         if (tree[sz].len == 1) {
             tree[sz].link = 2;
             ///For finding total number of palindromes
-            dp[sz] = 1;
+            cnt[sz] = 1;
+            occurrences[sz] = 1;
             ///For finding total number of palindromes
             return true;
         }
@@ -102,7 +110,8 @@ struct PalindromicTree {
         }
 
         ///For finding total number of palindromes
-        dp[sz] = 1 + dp[tree[sz].link];
+        cnt[sz] = 1;
+        occurrences[sz] = 1;
         ///For finding total number of palindromes
 
         return true;
@@ -111,12 +120,6 @@ struct PalindromicTree {
 
 
 int main() {
-
-    string s;
-    cin >> s;
-
-    PalindromicTree PT;
-    PT.buildTree(s);
 
     return 0;
 }
