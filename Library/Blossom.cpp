@@ -33,7 +33,8 @@ struct Blossom {
         for (;;) {
             a = base[a];
             usedInternal[a] = true;
-            if (match[a] == -1) break; /* Got the root */ a = p[match[a]];
+            if (match[a] == -1) break; /* Got the root */ 
+            a = p[match[a]];
         }
         // Climb from node b,until we find the marked vertex
         for (;;) {
