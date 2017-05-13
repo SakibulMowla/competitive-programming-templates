@@ -61,7 +61,7 @@ struct Blossom {
         q[qt++] = root;
         while (qh < qt) {
             int v = q[qh++];
-            for (int i=0; i<g[v].size(); ++i) {
+            for (int i=0; i < g[v].size(); ++i) {
                 int to = g[v][i];
                 if (base[v] == base[to] || match[v] == to) continue;
                 if (to == root || match[to] != -1 && p[match[to]] != -1) {
