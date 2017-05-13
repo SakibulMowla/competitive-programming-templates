@@ -33,7 +33,7 @@ struct Blossom {
         for (;;) {
             a = base[a];
             usedInternal[a] = true;
-            if (match[a] == -1) break; /* Got the root */ 
+            if (match[a] == -1) break; /* Got the root */
             a = p[match[a]];
         }
         // Climb from node b,until we find the marked vertex
@@ -94,7 +94,7 @@ struct Blossom {
         int ret = 0;
         for (int i = 0; i < n; ++i)
             if (match[i] == -1) {
-                int v = find_path (i);
+                int v = find_path(i);
                 if(v != -1) ret++;
                 while (v != -1) {
                     int pv = p[v], ppv = match[pv];
