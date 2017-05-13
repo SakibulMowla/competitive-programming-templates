@@ -52,7 +52,7 @@ struct Blossom {
         }
     }
 
-    int find_path(int root,int n) {
+    int find_path(int root) {
         used = vector <bool> (n, false);
         p = vector <int> (n, -1);
         for (int i = 0; i < n; ++i) base[i] = i;
@@ -93,7 +93,7 @@ struct Blossom {
         int ret = 0;
         for (int i = 0; i < n; ++i)
             if (match[i] == -1) {
-                int v = find_path (i,n);
+                int v = find_path (i);
                 if(v != -1) ret++;
                 while (v != -1) {
                     int pv = p[v], ppv = match[pv];
