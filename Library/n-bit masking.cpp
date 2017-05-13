@@ -30,7 +30,7 @@ struct nBitMasking {
     }
 };
 
-int main(){
+int main() {
 
 
     return 0;
