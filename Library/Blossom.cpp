@@ -66,7 +66,7 @@ struct Blossom {
                 int to = g[v][i];
                 if (base[v] == base[to] || match[v] == to) continue;
                 if (to == root || match[to] != -1 && p[match[to]] != -1) {
-                    int curbase = lca (v, to);
+                    int curbase = lca(v, to);
                     blossom = vector <bool> (n, false);
                     mark_path(v, curbase, to);
                     mark_path(to, curbase, v);
