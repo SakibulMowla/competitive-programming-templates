@@ -1,3 +1,4 @@
+// From Stanford ACM Notebook
 // Adjacency list implementation of Dinic's blocking flow algorithm.
 // This is very fast in practice, and only loses to push-relabel flow.
 //
