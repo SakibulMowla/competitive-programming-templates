@@ -1,3 +1,5 @@
+#### [Inside Story](https://www.google.com/ncr)
+
 ## Template Programs
  - ### String
    * [Z Function](https://github.com/SakibulMowla/Contest-Programming-Templates/blob/master/Library/Z%20Function.cpp)
@@ -12,4 +14,4 @@
    * [Max Flow Dinic's Algorithm](https://github.com/SakibulMowla/Competitive-Programming-Templates/blob/master/Library/Max%20Flow%20Dinic.cpp)
 
 
-#### [Inside Story](https://www.google.com/ncr)
+
