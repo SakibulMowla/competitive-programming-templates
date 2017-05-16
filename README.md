@@ -1,4 +1,4 @@
-- ## Template Programs
+## Template Programs
  - ### String
    * [Z Function](https://github.com/SakibulMowla/Contest-Programming-Templates/blob/master/Library/Z%20Function.cpp)
    * [Suffix Automata](https://github.com/SakibulMowla/Contest-Programming-Templates/blob/master/Library/SuffixAutomata.cpp)
@@ -11,4 +11,3 @@
    * [Edmond's Blossom](https://github.com/SakibulMowla/Competitive-Programming-Templates/blob/master/Library/Blossom.cpp)
    * [Max Flow Dinic's Algorithm](https://github.com/SakibulMowla/Competitive-Programming-Templates/blob/master/Library/Max%20Flow%20Dinic.cpp)
 
-- ## Inside Story
