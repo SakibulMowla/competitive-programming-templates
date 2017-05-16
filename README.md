@@ -12,6 +12,3 @@
  - ### Graph
    * [Edmond's Blossom](https://github.com/SakibulMowla/Competitive-Programming-Templates/blob/master/Library/Blossom.cpp)
    * [Max Flow Dinic's Algorithm](https://github.com/SakibulMowla/Competitive-Programming-Templates/blob/master/Library/Max%20Flow%20Dinic.cpp)
-
-
-
