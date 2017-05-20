@@ -1,4 +1,4 @@
 ## Useful Reading
   * [saisumit](https://saisumit.wordpress.com/2016/01/26/suffix-automaton/)
-  * [e-maxx](http://e-maxx.ru/algo/suffix_automata)(Yandex Translation can be tried)
+  * [e-maxx](http://e-maxx.ru/algo/suffix_automata)([Yandex Translation](https://translate.yandex.com/translate?url=http%3A%2F%2Fe-maxx.ru%2Falgo%2Fsuffix_automata&lang=ru-en) can be tried)
 ## Problems
