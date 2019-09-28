@@ -2,17 +2,24 @@
 
 using namespace std;
 
-struct nBitMasking {
-    const int limit = 21;
-    const int base = 7;
-    vector <int> power;
+struct NBitMasking {
+    int limit;
+    int base;
+    vector<int> power;
 
-    nBitMasking() {
-        power = vector <int> (limit, 1);
-        for (int i = 1; i < limit; i++) power[i] = base * power[i - 1];
+    /**
+        initializes the masking system
+        with provided base and limit
+        limit is the highest power of the base that will be used
+    **/
+    NBitMasking(int base, int limit): base(base), limit(limit), power(limit + 1, 1) {
+        for (int i = 1; i <= limit; i++) {
+            power[i] = base * power[i - 1];
+        }
     }
 
     /**
+        0 - based
         finds the pos-th bit of the number mask
     **/
     int getBit(int mask, int pos) {
@@ -20,6 +27,7 @@ struct nBitMasking {
     }
 
     /**
+        0 - based
         sets the pos-th bit of mask as bit and returns the new mask
     **/
     int setBit(int mask, int pos, int bit) {
@@ -35,3 +43,6 @@ int main() {
 
     return 0;
 }
+
+// Test With:
+// - [C. Anadi and Domino](https://codeforces.com/contest/1230/problem/C)
